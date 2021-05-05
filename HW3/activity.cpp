@@ -113,14 +113,14 @@ int main()
         return -1;
     }
 
-    int test_size = 0;
+    auto test_size = 0;
     while (cin >> test_size)
     {
         auto all_activities = vector<Activity>{};
 
-        int start;
-        int finish;
-        int id;
+        auto start = 0;
+        auto finish = 0;
+        auto id = 0;
 
         for (auto i = 0; i < test_size; ++i)
         {
@@ -139,7 +139,7 @@ int main()
 
         cout << "Set " << count << endl;
         cout << "Maximum number of activities = " << size << endl;
-        for (int i = size-1; i > -1; --i)
+        for (auto i = size-1; i > -1; --i)
         {
         	cout << selected[i].id << " ";
         }
