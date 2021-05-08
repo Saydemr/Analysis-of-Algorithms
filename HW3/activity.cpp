@@ -114,7 +114,7 @@ int main()
     }
 
     auto test_size = 0;
-    while (cin >> test_size)
+    while (cin >> test_size)                                              // do it until there is no more tests
     {
         auto all_activities = vector<Activity>{};
 
@@ -122,30 +122,33 @@ int main()
         auto finish = 0;
         auto id = 0;
 
-        for (auto i = 0; i < test_size; ++i)
+        for (auto i = 0; i < test_size; ++i)                             // take the activity id, start and finish times
         {
             cin >> id;
             cin >> start;
             cin >> finish;
 
-            all_activities.push_back(Activity(id,start,finish));
+            all_activities.push_back(Activity(id,start,finish));        // insert it tot activity list
         }
 
-        merge_sort(all_activities);
+        merge_sort(all_activities);                                    // sort activities based on the start time
         // sort(activities.begin(), activities.end(), [&](Activity fst, Activity sec) {return fst.start < sec.start;} ); I would love to use this line
 
         auto selected = last_to_start(all_activities);
         auto size = selected.size();
 
+        // PRINT
         cout << "Set " << count << endl;
         cout << "Maximum number of activities = " << size << endl;
-        for (auto i = size-1; i > -1; --i)
+        for (int i = size-1; i > -1; --i)
         {
-        	cout << selected[i].id << " ";
+        	cout << " " << selected[i].id;
         }
-        cout << endl;
+        cout << endl << endl;
 
         count++;
+
+        // clear the variables
         selected.clear();
         all_activities.clear();
     }
