@@ -100,7 +100,7 @@ auto last_to_start(vector<Activity>& sorted_activities) -> vector<Activity>
 	// create a vector to save selected activities
 	auto selected = vector<Activity>{};
 	// last element is always in the list
-	v.push_back(sorted_activities.back());
+	selected.push_back(sorted_activities.back());
 
 	// pointer to last activity selected
 	auto i = n-1;
