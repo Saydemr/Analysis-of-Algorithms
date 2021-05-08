@@ -1,9 +1,26 @@
+//============================================================================
+// Name        : activity.cpp
+// Author      : Abdullah Saydemir
+// Version     : 1.4
+// Copyright   : BSD
+// Date        : May 6, 2021
+// Course      : CS 325 - Analysis of Algorithms
+// Description : Includes the implementation of last-to-start greedy activity 
+//				 selection algorithm. Uses an Activity struct to store activities.   
+//               Merge sort algorithm is taken from HW1 - mergesort.cpp with only
+//               is line 48. Main reads activities from act.txt, sorts them using 
+//               mergesort, and sends the sorted list to last_to_start function.
+//               This function greedily selects activities and returns to main.
+//				 Main prints result and the selected activities for each test case.
+//============================================================================
+
 #include <iostream>
 #include <vector>
 #include <fstream>
 
 using namespace std;
 
+// this is the struct to hold activity info in one place
 struct Activity
 {
     int id = 0;
@@ -74,25 +91,36 @@ void merge_sort(vector<Activity>& to_sort)
 }
 
 
-vector<Activity> last_to_start(vector<Activity>& sorted_activities) 
+// activity selection greedy algorithm
+auto last_to_start(vector<Activity>& sorted_activities) -> vector<Activity> 
 {
+
 	auto n = sorted_activities.size();
 
-	auto v = vector<Activity>{};
+	// create a vector to save selected activities
+	auto selected = vector<Activity>{};
+	// last element is always in the list
 	v.push_back(sorted_activities.back());
 
+	// pointer to last activity selected
 	auto i = n-1;
 
+	// reverse traverse the sorted activities
 	for (int m = n-2; m > -1 ; --m)
 	{
+		// check if there is a conflict between the start time of the
+		// last activity selected and the finish time of the 
+		// activity we are considering to select.
 		if (sorted_activities[m].finish <= sorted_activities[i].start )
 		{
-			v.push_back(sorted_activities[m]);
+			// if there is no conflict take it
+			// and update the pointer
+			selected.push_back(sorted_activities[m]);
 			i = m;
 		}
 	}
 
-	return v;
+	return selected;
 }
 
 
