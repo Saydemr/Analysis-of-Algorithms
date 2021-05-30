@@ -26,7 +26,7 @@ def read_input_vals(in_file):
 	file = open(in_file,'r')
         # toss the first line which is the number of points
 	line = file.readline()
-        line = file.readline()	
+	line = file.readline()
 	#points tracks the points as teh key and the number of visitations as the value at that key
 	points = []
 	while len(line) > 1:
