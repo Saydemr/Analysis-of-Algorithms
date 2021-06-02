@@ -6,12 +6,11 @@ import TSPAllVisited as visit
 # usage: python tsp-verifier.py inputfilename solutionfilename
 
 def main(instancefile, solutionfile):
-
-    visit.main(instancefile, solutionfile)
-	
-    cities = readinstance(instancefile)
-    solution = readsolution(solutionfile)
-    checksolution(cities, solution[0][0], solution[1])
+    visited = visit.main(instancefile, solutionfile)
+    if (visited == 1):
+    	cities = readinstance(instancefile)
+    	solution = readsolution(solutionfile)
+    	checksolution(cities, solution[0][0], solution[1])
     
 def distance(a,b):
     # a and b are integer pairs (each representing a point in a 2D, integer grid)
@@ -68,10 +67,11 @@ def checksolution(cities, value, cityorder):
     
     # check value of solution
     if dist == value:
-        print('solution found of length ', value)
+               print('solution found of length ')
+               print(value)
     else:
-        print('solution length given as ', value)
-        print('but computed as ', dist)
+        print('solution length given as ', value,' but computed as', dist)
+        print(99999999)
 
     # check all n cities here
     n = len(cities)
@@ -81,4 +81,4 @@ def checksolution(cities, value, cityorder):
             print('city not found: ', i)
 
 if __name__ == '__main__':
-	main(sys.argv[1], sys.argv[2])
+        main(sys.argv[1], sys.argv[2])
