@@ -13,9 +13,15 @@ To run the script:
 	|-- tsp_example_3.txt
 	|-- tsp_example_4.txt
 	|-- tsp_example_5.txt
+	|-- tsp_example_0.txt.tour
+	|-- tsp_example_1.txt.tour
+	|-- tsp_example_2.txt.tour
+	|-- tsp_example_3.txt.tour
+	|-- tsp_example_4.txt.tour
+	|-- tsp_example_5.txt.tour
 	|-- TSPAllVisited.py
 	|-- tsp-verifier.py
 	|-- TSPAllVisited.pyc
 
 4- Execute "chmod +x HW6.sh". This gives admin privileges to executable.
-5- Execute "HW6.sh".
+5- Execute "./HW6.sh".

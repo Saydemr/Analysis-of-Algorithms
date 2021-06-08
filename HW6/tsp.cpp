@@ -96,7 +96,9 @@ struct Graph
             start = index;                      // update the current index
         }
 
-        distance += adj_matrix[visited_nodes.back()][visited_nodes[0]];  // add the distance between last visited node and starting node
+        // add the distance between the last 
+        // visited node and the starting node
+        distance += adj_matrix[visited_nodes.back()][visited_nodes[0]];  
     }
 
     // print the distance and path to
@@ -196,6 +198,7 @@ int main(int argc, char const *argv[])
 
     // choose a “random” integer and run the tsp algorithm
     auto start = rand() % num_cities;
+    //cout << "Starting node: " << start << endl;
     graph.tsp(start);
 
     // print the distance and the path to the file
